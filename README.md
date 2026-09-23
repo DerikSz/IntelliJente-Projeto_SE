@@ -75,15 +75,11 @@ Crie um template no Blynk Cloud com os datastreams abaixo e os eventos da segund
 6. Cole esse UID em `UID_AUTORIZADO`, exatamente como foi impresso (maiúsculas, bytes separados por espaço, incluindo o espaço inicial).
 7. Grave novamente e teste pelo app.
 
-> Nunca publique o token do Blynk nem a senha do Wi-Fi. Mantenha essas credenciais em um arquivo `secrets.h` listado no `.gitignore`, ou substitua elas por placeholders antes de commitar.
+> (Nunca publique o token do Blynk nem a senha do Wi-Fi pra não dar ruim. Mantenha essas credenciais em um arquivo `secrets.h` listado no `.gitignore`, ou substitua elas por placeholders antes de commitar_.
 
 ## Como o alarme funciona
 
 O alarme só reage ao PIR quando está armado. Ele é armado pelo botão V0 do app (ou por uma tag RFID não autorizada) e é desarmado por uma tag autorizada ou pela senha em V2. Se o botão V0 for desligado no app, o sketch o devolve para ligado, de modo que o alarme só sai desse estado por RFID ou senha. A explicação detalhada de cada trecho do código está em [EXPLICACAO.md](EXPLICACAO.md).
-
-## Limitações conhecidas
-
-O buzzer emite um único beep curto (100 ms) a cada disparo, não uma sirene contínua. A conexão inicial com o Blynk é bloqueante, então sem Wi-Fi o sketch não sai do `setup()`. Há chamadas de `delay()` que pausam o loop por até 3 segundos, e a senha (`1234`) está fixa no código. Esses pontos são candidatos naturais a melhorias.
 
 ## Tecnologias
 
